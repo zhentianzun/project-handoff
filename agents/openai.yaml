@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目交接"
+  short_description: "为任意项目建立自动接手、阶段检查点、证据核验与跨会话交接机制"
+  default_prompt: "使用 $project-handoff 为当前项目建立或维护自动接手工作规范。"
