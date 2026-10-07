@@ -79,6 +79,7 @@ def file_inside(root, relative):
 
 
 def source_hashes(root, state):
+    root = root.resolve()
     excluded = {'.git', '.codex', '.agents', '__pycache__', 'node_modules', '.venv', 'venv',
                 'logs', 'backups', 'build', 'dist', '.handoff-export'}
     secret_names = {'.env', 'auth.json', 'credentials.json', '.secrets.json', '.fernet_key'}
@@ -368,6 +369,7 @@ def write_render(outputs):
 
 
 def export(root, state, output):
+    root = root.resolve()
     output = output.resolve()
     if (not output.is_relative_to(root.resolve()) or output == root.resolve()
             or output.is_relative_to(root / 'docs') or output.is_relative_to(root / '.git')

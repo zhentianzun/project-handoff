@@ -176,8 +176,19 @@ class PortabilityTests(unittest.TestCase):
     def test_no_other_project_specific_facts(self):
         self.setup_project()
         text = '\n'.join(p.read_text(encoding='utf-8') for p in self.root.rglob('*.md'))
-        for specific in ['81.70.243.244', 'saiboxuefu.com', 'codex_qa_20261005', 'deploy_ed25519']:
+        for specific in ['192.0.2.10', 'example.invalid', 'sample_private_qa_account', 'sample_deploy_key']:
             self.assertNotIn(specific, text)
+
+    def test_source_hashes_normalize_root_alias(self):
+        state = self.setup_project()
+        alias = self.root / '..' / self.root.name
+        self.assertEqual(state['local']['source_hashes'], rt.source_hashes(alias, state))
+
+    def test_export_rejects_protected_path_through_root_alias(self):
+        state = self.setup_project()
+        alias = self.root / '..' / self.root.name
+        with self.assertRaises(ValueError):
+            rt.export(alias, state, self.root / 'docs/export')
 
     def test_bad_entry_refuses_checkpoint_without_mutation(self):
         self.setup_project()

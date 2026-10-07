@@ -67,7 +67,7 @@ State edits use the runtime's `load`, `validate`, and `save` API, then `render` 
 python -X utf8 scripts/test_portability.py
 ```
 
-24 isolated tests currently cover project roots, existing rules, checkpoints, stale writers, interrupted writes, code drift, unknown external results, and export boundaries. Git must be available for the Git-specific tests. A GitHub Actions matrix is included for Linux and Windows with Python 3.10 and 3.13; its results become available after publication.
+26 isolated tests cover project roots and path aliases, existing rules, checkpoints, stale writers, interrupted writes, code drift, unknown external results, and export boundaries. Git must be available for the Git-specific tests. See the test badge for the GitHub Actions matrix on Linux and Windows with Python 3.10 and 3.13.
 
 These are tool-level tests, not proof that every model or host follows every instruction. Abrupt interruptions can lose information that was never saved. Secret-file exclusions are a practical filter, not a guarantee that arbitrary documents are safe to share; review exported documents and state before distributing them.
 

@@ -65,7 +65,7 @@ python tools/handoff.py export --output .handoff-export
 python -X utf8 scripts/test_portability.py
 ```
 
-当前 24 项隔离测试覆盖项目根、人工规则、检查点、旧状态写入、中断、源码变化、未知外部结果和导出范围。Git 相关测试需要安装 Git。已附 Windows／Linux、Python 3.10／3.13 的 GitHub Actions 流程；公开后的实际运行结果以 Actions 为准。
+当前 26 项隔离测试覆盖项目根与路径别名、人工规则、检查点、旧状态写入、中断、源码变化、未知外部结果和导出范围。Git 相关测试需要安装 Git。Windows／Linux、Python 3.10／3.13 的 GitHub Actions 结果见顶部测试徽章。
 
 这是工具层验证，不等于所有模型端到端测试。导出前还需人工核对文档和状态是否含敏感内容，排除常见秘密文件不能保证任意输入都安全。
 
